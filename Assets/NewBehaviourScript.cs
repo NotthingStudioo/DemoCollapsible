@@ -1,29 +1,34 @@
 using System;
 using GoogleMobileAds.Api;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public        Button     btnLoad, btnShow, btnHide, btnDestroy;
-    private const string     CollapsibleBannerAdFormat = "CollapsibleBanner";
-    private       BannerView collapsibleBannerView;
+    public        Button          btnLoad, btnShow, btnHide, btnDestroy;
+    private const string          CollapsibleBannerAdFormat = "CollapsibleBanner";
+    private       BannerView      collapsibleBannerView;
+    public        TextMeshProUGUI txt;
 
     private void Awake()
     {
         this.btnLoad.onClick.AddListener(this.LoadCollapsibleBannerAd);
         this.btnShow.onClick.AddListener(() =>
         {
+            this.txt.text="Show CollapsibleBanner.";
             Debug.Log("Show CollapsibleBanner.");
             this.collapsibleBannerView?.Show();
         });
         this.btnHide.onClick.AddListener(() =>
         {
+            this.txt.text="Hide CollapsibleBanner.";
             Debug.Log("Hide CollapsibleBanner.");
             this.collapsibleBannerView?.Hide();
         });
         this.btnDestroy.onClick.AddListener(() =>
         {
+            this.txt.text="Destroy CollapsibleBanner.";
             Debug.Log("Destroy CollapsibleBanner.");
             this.collapsibleBannerView?.Destroy();
         });
@@ -52,6 +57,7 @@ public class NewBehaviourScript : MonoBehaviour
         var request = new AdRequest();
         AddPramsCollapsible();
         Debug.Log("Load CollapsibleBanner.");
+        this.txt.text="Load CollapsibleBanner.";
         this.collapsibleBannerView.LoadAd(request);
 
         return;
