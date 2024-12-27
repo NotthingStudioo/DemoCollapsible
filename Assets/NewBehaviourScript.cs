@@ -59,6 +59,7 @@ public class NewBehaviourScript : MonoBehaviour
         Debug.Log("Load CollapsibleBanner.");
         this.txt.text="Load CollapsibleBanner.";
         this.collapsibleBannerView.LoadAd(request);
+        this.collapsibleBannerView.Hide();
 
         return;
 
